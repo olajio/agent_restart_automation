@@ -1,0 +1,13 @@
+-
+  name: Windows Service
+  hosts: ctr
+  tasks:
+    - name: Set service startup mode to auto and ensure it is started
+      ansible.windows.win_service:
+        name: metricbeat
+        start_mode: auto
+        state: started
+      register: results
+    - debug:
+        var: results.state
+

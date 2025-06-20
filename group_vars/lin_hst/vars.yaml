@@ -1,0 +1,3 @@
+ansible_user: service-elasticauto
+ansible_password: "CWKnHQcyjjwA@S3UK"
+ansible_port: 22
