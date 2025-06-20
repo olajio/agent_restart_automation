@@ -1,0 +1,14 @@
+-
+  name: Start Metricbeat/Filebeat service
+  hosts: all
+  become: yes
+  tasks:
+   - name: Start service metricbeat/filebeat, if not started
+     service:
+       name: "{{ item }}"
+       state: started
+     loop:
+       - metricbeat
+       - filebeat
+     register: results
+

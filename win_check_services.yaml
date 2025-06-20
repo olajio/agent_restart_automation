@@ -1,0 +1,12 @@
+-
+  name: Windows Service
+  hosts: all
+  tasks:
+    - name: 'Check service status'
+      ansible.windows.win_service_info:
+        name: "{{ item }}"
+      loop:
+         - metricbeat
+         - filebeat
+      register: results
+    - debug: var=results

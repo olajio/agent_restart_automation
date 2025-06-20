@@ -1,0 +1,11 @@
+- hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+  - name: Gathering service facts
+    service_facts:
+    register: services_state
+  - debug: var=services_state.ansible_facts.services["metricbeat.service"].state
+  - debug: var=services_state.ansible_facts.services["metricbeat.service"].status
+  - debug: var=services_state.ansible_facts.services["filebeat.service"].state
+  - debug: var=services_state.ansible_facts.services["filebeat.service"].status
